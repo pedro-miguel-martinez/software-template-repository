@@ -9,7 +9,7 @@ doc: >-
 
 requirements:
   - class: DockerRequirement
-    dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/dicom_file_integrity_checker:2.1.3
+    dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/dicom_file_integrity_checker:latest
 
   - class: EnvVarRequirement
     envDef:

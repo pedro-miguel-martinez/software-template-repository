@@ -1,0 +1,25 @@
+{
+    "QA": {
+        "catalogue_file": "test_catalogue.json",
+        "sequence_selection": ["ALL"],
+        "modality_selection": ["ALL"],
+        "input_directory": "example_input",
+        "output_directory": "OUTPUT_TEST",
+        "report_type": ["xlsx", "json"],
+        "report_name": "test_report",
+        "only_report": false,
+        "id_from_folder": false,
+        "num_min_dyn_seq": 3,
+        "force_sequence_name": true,
+        "change_header_names": true,
+        "change_folder_names": true,
+        "b_values_in_name": true,
+        "b_value_choices": [1000, 1500],
+        "dwi_selection_source": "both",
+        "modalities_to_avoid_exclusion_corrupt_files": ["RTSTRUCT", "RTDOSE", "RTPLAN"],
+        "modalities_to_include_everything": [],
+        "dwi_quantity": 1,
+        "debug": true,
+        "threads_percentage": 100
+    }
+}
