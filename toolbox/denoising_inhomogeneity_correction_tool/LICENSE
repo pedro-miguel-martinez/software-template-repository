@@ -1,0 +1,78 @@
+Denoising-Inhomogeneity Correction Tool – Limited Use License Agreement - Terms and Conditions
+Version 1.1.0 and above
+© IIS La Fe, Valencia, Spain (HULAFE) – All rights reserved
+
+This software is the intellectual property of the Biomedical Imaging Research Group GIBI230 at La Fe Health Research Institute (GIBI230-IISLAFE), hereinafter referred to as "HULAFE". It is provided as part of the EUCAIM project under a restricted-use license agreement.
+
+By accessing and using the Tool, users confirm acceptance of these License Terms and Conditions. If users do not agree to these terms, they must refrain from using the Tool.
+
+License:
+This software is licensed, not sold. It is provided free of charge for academic and research use within the EUCAIM project context.
+
+The software is partially inspired by the principles of the CC-BY-NC-ND-4.0 License, promoting openness and transparency in academic collaboration. However, its use is governed by additional custom restrictions described below.
+
+Restrictions:
+- Commercial use, redistribution, or integration into any product or service (commercial or institutional) is strictly prohibited without prior written consent from HULAFE.
+- Use is strictly limited to the scope of the EUCAIM project. Use in future European public research infrastructures, including any resulting EDIC entity, is permitted provided that attribution is preserved and prior notification is sent to HULAFE.
+- Copying, sublicensing, or modifying the software, in whole or in part, is not permitted unless otherwise authorized.
+- Reverse engineering or extracting parts of the code for use in other tools is prohibited.
+
+Third-Party Dependencies:
+This software incorporates or depends on the following third-party tools and libraries, each subject to their own licenses:
+
+1. ANTs (Advanced Normalization Tools) - N4 Bias Field Correction
+   - License: Apache 2.0 / BSD-style
+   - Source: https://github.com/ANTsX/ANTs
+   - Citation required when using N4 correction
+
+2. Convert3D (c3d) - NIFTI volume manipulation
+   - License: GPL
+   - Source: http://www.itksnap.org/pmwiki/pmwiki.php?n=Convert3D.Convert3D
+
+3. dcm2niix - DICOM to NIFTI conversion
+   - License: BSD-2-Clause
+   - Source: https://github.com/rordenlab/dcm2niix
+
+4. FSL (FMRIB Software Library) - SUSAN filter
+   - License: Custom FSL license (free for academic use)
+   - Source: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+
+5. SimpleITK - Image filtering
+   - License: Apache 2.0
+   - Source: https://simpleitk.org/
+
+6. DIPY - Non-Local Means denoising
+   - License: BSD
+   - Source: https://dipy.org/
+
+Users are responsible for complying with the licenses of all third-party dependencies. When publishing results obtained with this tool, appropriate citations for the methods and software used are required.
+
+Disclaimer:
+- The software is provided "as-is" without warranty of any kind, express or implied.
+- HULAFE assumes no responsibility for the legal or ethical handling of the data processed with this tool. Full responsibility lies with the Data Holder (end-user).
+- The developers are not responsible for configuration errors, incompatibility with local datasets, or failures arising from incorrect usage.
+- The tool is optional and intended to assist image preprocessing and harmonization processes.
+
+Attribution:
+When using this tool in research or publications, users must cite the following references:
+
+1. Fernández Patón M, Cerdá Alberich L, Sangüesa Nebot C, Martínez de Las Heras B, Veiga Canuto D, Cañete Nieto A, Martí-Bonmatí L. MR Denoising Increases Radiomic Biomarker Precision and Reproducibility in Oncologic Imaging. J Digit Imaging. 2021 Oct;34(5):1134-1145. doi: 10.1007/s10278-021-00512-8. Epub 2021 Sep 10. PMID: 34505958; PMCID: PMC8554919.
+
+2. Martí-Bonmatí L, Alberich-Bayarri Á, Ladenstein R, et al. PRIMAGE project: predictive in silico multiscale analytics to support childhood cancer personalised evaluation empowered by imaging biomarkers. Eur Radiol Exp. 2020 Apr 3;4(1):22. doi: 10.1186/s41747-020-00150-9. PMID: 32246291; PMCID: PMC7125275.
+
+Developers:
+Matías Fernández Patón
+Luis Martí-Bonmatí
+
+Maintainers:
+Pedro Miguel Martínez-Gironés
+Carina Soler-Pons
+Matías Fernández Patón
+
+Contact for permissions, licensing, or questions:
+pedromiguel_martinez@iislafe.es; matias_fernandez@iislafe.es; carina_soler@iislafe.es; gibi230@iislafe.es; luis_marti@iislafe.es
+
+EUCAIM Project Context:
+This tool is developed and provided to the EUCAIM (European Cancer Image Platform) project, which aims to establish a federated infrastructure for cancer imaging data across Europe. The tool supports standardized image preprocessing workflows to ensure data quality and reproducibility in multi-center research studies.
+
+Last Updated: November 2025
