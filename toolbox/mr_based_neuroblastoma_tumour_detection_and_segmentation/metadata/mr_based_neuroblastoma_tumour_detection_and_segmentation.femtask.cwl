@@ -13,8 +13,13 @@ requirements:
     dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/mr_based_neuroblastoma_tumour_detection_and_segmentation:2.0.0
 
   - class: ResourceRequirement
-    coresMin: 4
+    coresMin: 8
     ramMin: 16384
+ 
+  - class: CUDARequirement
+    cudaVersionMin: "11.2"
+    cudaComputeCapability: "3.5"
+    cudaDeviceCountMin: 1
 
 baseCommand: [python, /app/nnunet_nb_segmentation/entrypoint.py]
 
