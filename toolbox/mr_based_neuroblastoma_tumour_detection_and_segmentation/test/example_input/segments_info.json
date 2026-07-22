@@ -1,0 +1,11 @@
+{
+  "SEGMENTS": {
+    "neuroblastoma_tumor": {
+      "series_number": 2302001,
+      "rgb": [255, 0, 0],
+      "desc": "Neuroblastoma primary tumor region detected and segmented from MR imaging",
+      "code_value": "CLIN1049513",
+      "segment_label": "neuroblastoma_tumor"
+    }
+  }
+}
