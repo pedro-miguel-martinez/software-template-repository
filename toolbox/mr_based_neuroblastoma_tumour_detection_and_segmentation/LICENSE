@@ -1,0 +1,55 @@
+MR-based Neuroblastoma Tumour Detection and Segmentation Tool – Limited Use License Agreement - Terms and Conditions
+Version 2.0.0 and above
+© IIS La Fe, Valencia, Spain (HULAFE) – All rights reserved
+
+This software is the intellectual property of the Biomedical Imaging Research Group GIBI230 at La Fe Health Research Institute (GIBI230-IISLAFE), hereinafter referred to as "HULAFE". It is provided as part of the EUCAIM project under a restricted-use license agreement.
+
+By accessing and using the Tool, users confirm acceptance of these License Terms and Conditions. If users do not agree to these terms, they must refrain from using the Tool.
+
+License:
+This software is licensed, not sold. It is provided free of charge for academic and research use within the EUCAIM project context, exclusively for automated detection and segmentation of neuroblastic tumours in T2-weighted MR images before their federation or upload to the EUCAIM imaging data atlas (reference nodes).
+
+The software is partially inspired by the principles of the CC-BY-NC-ND-4.0 (https://spdx.org/licenses/CC-BY-NC-ND-4.0). However, its use is governed by additional custom restrictions described below.
+
+Restrictions:
+- Commercial use, redistribution, or integration into any product or service (commercial or institutional) is strictly prohibited without prior written consent from HULAFE.
+- Use is strictly limited to the scope of the EUCAIM project. Use in future European public research infrastructures, including any resulting EDIC entity, is permitted provided that attribution is preserved and prior notification is sent to HULAFE.
+- Copying, sublicensing, or modifying the software, in whole or in part, is not permitted unless otherwise authorized.
+- Reverse engineering or extracting parts of the code for use in other tools is prohibited.
+
+Disclaimer:
+- The software is provided "as-is" without warranty of any kind, express or implied.
+- HULAFE assumes no responsibility for the legal or ethical handling of the data processed with this tool. Full responsibility lies with the Data Holder (end-user).
+- The developers are not responsible for configuration errors, incompatibility with local datasets, or failures arising from incorrect usage.
+- The tool is optional and intended to assist — not replace — manual validation of imaging data quality and clinical interpretation.
+
+Third-Party Software:
+This tool is built on the nnU-Net framework (Isensee et al., 2021), which is licensed under Apache License 2.0 by the German Cancer Research Center (DKFZ). When redistributing images containing nnU-Net and/or its pretrained weights, users must comply with the Apache 2.0 license terms. See: https://github.com/MIC-DKFZ/nnUNet
+
+Model Training & Validation:
+The neuroblastoma segmentation model was trained and validated as described in:
+
+- Veiga-Canuto D., Cerdá-Alberich L., et al. (2022). Comparative Multicentric 
+  Evaluation of Inter-Observer Variability in Manual and Automatic Segmentation 
+  of Neuroblastic Tumors in Magnetic Resonance Images. Cancers 14(15):3648. 
+  https://doi.org/10.3390/cancers14153648
+
+- Veiga-Canuto D., Cerdá-Alberich L., et al. (2023). Independent Validation of 
+  a Deep Learning nnU-Net Tool for Neuroblastoma Detection and Segmentation in 
+  MR Images. Cancers 15(5):1622. https://doi.org/10.3390/cancers15051622
+
+Legal Protection:
+This software is the intellectual property of IIS La Fe and GIBI230 Research Group. All rights are reserved under Spanish and international copyright law.
+
+Developers:
+Leonor Cerdá Alberich, Diana Veiga Canuto, Matías Fernández Patón, Pedro Miguel Martínez-Gironés, Luis Marti-Bonmati
+GIBI230 Research Group
+La Fe Health Research Institute (IIS La Fe)
+Valencia, Spain
+
+Contact for permissions, licensing, or questions:
+gibi230@iislafe.es
+
+https://www.iislafe.es/en/
+https://www.acim.lafe.san.gva.es/acim
+https://cancerimage.eu/
