@@ -1,0 +1,7 @@
+# Execution Configuration
+# Timestamp: 2026-07-22T12:33:43.670063
+# Fixed segment key: neuroblastoma_cect
+# Fixed seg_series_number: 2302300
+
+dataset_id,patient_id,study_id,series_path,status,reason,nifti_mask,dicom_seg
+primage-dipg-ct-dataset,ZT8FDBFAZT8FDBFA,TCTORACESENZAECONCONTRASTO20140612,/input/primage-ct-dataset/ZT8FDBFAZT8FDBFA/TCTORACESENZAECONCONTRASTO20140612/Fl_Addome50B30f620140612,SUCCESS,OK,/output/intermediate_files/primage-dipg-ct-dataset/ZT8FDBFAZT8FDBFA/TCTORACESENZAECONCONTRASTO20140612/Fl_Addome50B30f620140612/temp_masks/mask_final.nii.gz,/output/DICOM_SEG/primage-dipg-ct-dataset/ZT8FDBFAZT8FDBFA/TCTORACESENZAECONCONTRASTO20140612/2302300_AI_model_alfasUnet_HULAFE_neuroblastoma_cect/1.3.12.2.1107.5.1.4.73309.30000014060913455676500074114.SEG.dcm
