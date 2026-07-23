@@ -1,0 +1,234 @@
+cwlVersion: v1.2
+class: FEMTask
+
+id: mr-based-dipg-tumour-detection-and-segmentation
+label: MR-based DIPG tumour detection and segmentation
+doc: >-
+  DIPG segmentation pipeline that accepts one
+  of several input modes (inline JSON, CSV file, inline series arguments, or
+  wildcard discovery), runs the GPU-enabled segmentation workflow inside a
+  container, and writes results into an output directory.
+
+requirements:
+  - class: DockerRequirement
+    dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/mr-based_dipg_tumour_detection_and_segmentation:2.0.0
+
+  - class: ResourceRequirement
+    coresMin: 4
+    ramMin: 16384
+
+  - class: CUDARequirement
+    cudaVersionMin: "11.8"
+    cudaComputeCapability: "6.0"
+    cudaDeviceCountMin: 1
+
+baseCommand: [python, /app/dipg_inference_pipeline.py]
+
+inputs:
+  json_args:
+    type: string
+    doc: >-
+      Inline JSON payload with dataset_id, patient_id, study_id and a
+      sequences mapping containing T1w/T2w or FLAIR paths.
+    required: false
+    default: null
+    hidden: false
+    source: user
+    inputBinding:
+      position: 1
+      prefix: --json-args
+      separate: true
+
+  csv_file:
+    type: File
+    doc: >-
+      CSV file containing the series definitions to process.
+    required: false
+    default: null
+    hidden: false
+    source: user
+    inputBinding:
+      position: 2
+      prefix: --csv-file
+      separate: true
+
+  csv_path:
+    type: string
+    doc: >-
+      Path where the CSV file is located when the container mounts it separately.
+    required: false
+    default: null
+    hidden: false
+    source: user
+    inputBinding:
+      position: 3
+      prefix: --csv-path
+      separate: true
+
+  series_args:
+    type: string[]
+    doc: >-
+      Inline series arguments, one per input sequence entry.
+    required: false
+    default: null
+    hidden: false
+    source: user
+    inputBinding:
+      position: 4
+      prefix: --series-args
+      separate: true
+
+  wildcard_dir:
+    type: Directory
+    doc: >-
+      Root directory used for automatic wildcard-based discovery of T1w/T2w
+      or FLAIR series.
+    required: false
+    default: null
+    hidden: false
+    source: user
+    inputBinding:
+      position: 5
+      prefix: --wildcard-dir
+      separate: true
+
+  t1w_pattern:
+    type: string
+    doc: Wildcard pattern used to discover T1-weighted series.
+    required: false
+    default: "*T1*"
+    hidden: false
+    source: user
+    inputBinding:
+      position: 6
+      prefix: --t1w-pattern
+      separate: true
+
+  t2w_pattern:
+    type: string
+    doc: Wildcard pattern used to discover T2-weighted or FLAIR series.
+    required: false
+    default: "*T2*"
+    hidden: false
+    source: user
+    inputBinding:
+      position: 7
+      prefix: --t2w-pattern
+      separate: true
+
+  match_case:
+    type: boolean
+    doc: Use case-sensitive wildcard matching when enabled.
+    required: false
+    default: false
+    hidden: false
+    source: user
+    inputBinding:
+      position: 8
+      prefix: --match-case
+      separate: true
+
+  mode:
+    type: string
+    doc: Output mode for the segmentation run.
+    required: false
+    default: dicom-seg
+    hidden: false
+    source: user
+    inputBinding:
+      position: 9
+      prefix: --mode
+      separate: true
+
+  keep_intermediates:
+    type: boolean
+    doc: Preserve intermediate preprocessing outputs.
+    required: false
+    default: false
+    hidden: false
+    source: user
+    inputBinding:
+      position: 10
+      prefix: --keep-intermediates
+      separate: true
+
+  patch_size:
+    type: int
+    doc: Patch size for inference.
+    required: false
+    default: 64
+    hidden: false
+    source: user
+    inputBinding:
+      position: 11
+      prefix: --patch-size
+      separate: true
+
+  patch_overlap:
+    type: float
+    doc: Patch overlap ratio used during inference.
+    required: false
+    default: 0.5
+    hidden: false
+    source: user
+    inputBinding:
+      position: 12
+      prefix: --patch-overlap
+      separate: true
+
+  threshold:
+    type: float
+    doc: Probability threshold applied after model inference.
+    required: false
+    default: 0.5
+    hidden: false
+    source: user
+    inputBinding:
+      position: 13
+      prefix: --threshold
+      separate: true
+
+  output_dir:
+    type: string
+    doc: >-
+      Output directory mounted inside the container, typically /output.
+    required: true
+    default: /output
+    hidden: false
+    source: user
+    inputBinding:
+      position: 14
+      prefix: --output-dir
+      separate: true
+
+  emit_config:
+    type: boolean
+    doc: Write the resolved series selection and processing configuration.
+    required: false
+    default: false
+    hidden: false
+    source: user
+    inputBinding:
+      position: 15
+      prefix: --emit-config
+      separate: true
+
+outputs:
+  results:
+    type: Directory
+    doc: >-
+      Output directory tree generated by the segmentation tool.
+    outputBinding:
+      glob: $(inputs.output_dir)
+
+expectedExitCode: 0
+
+metadata:
+  author: GIBI230 / IIS La Fe
+  version: "2.0.0"
+  orchestrator:
+    network: overlay
+    additional_metadata:
+      notes: >-
+        The task should be executed with mounted /input, /output and /config
+        folders. Only one input method should be provided at runtime.
