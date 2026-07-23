@@ -1,0 +1,14 @@
+{
+    "file_path": "/input/UC2_100.xlsx",
+    "identifier": "patient_id",
+    "start_col": "original_shape_Elongation",
+    "end_col": "lbp-3D-k_ngtdm_Strength",
+    "batch_col": "software_versions",
+    "min_clusters": 1,
+    "max_clusters": 100,
+    "cpus": 30,
+    "output_dir": "/output/results",
+    "results": "full",
+    "approach": "soft",
+    "small_groups": "drop"
+}

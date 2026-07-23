@@ -1,0 +1,6 @@
+6 clusters
+Batch effect removal (%) of ComBat: 0.44747240271536304
+Batch effect removal (%) of cluster-based harmonization: 0.39579876162318983
+R2 original: 0.5634393306322388
+R2 ComBat harmonized: 0.3113157795698951
+R2 Cluster harmonized: 0.3404307413181997
