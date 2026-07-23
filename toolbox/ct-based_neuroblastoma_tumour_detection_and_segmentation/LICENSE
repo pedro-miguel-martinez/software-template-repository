@@ -1,0 +1,39 @@
+CT-based Neuroblastoma Detection and Segmentation
+Limited Use License Agreement - Terms and Conditions
+Version 2.0.0
+© IIS La Fe, Valencia, Spain (HULAFE) – All rights reserved
+
+Scope and Purpose (exclusively for)
+This software is provided solely for automated contrast-enhanced CT neuroblastoma segmentation, including generation of DICOM SEG objects, within the EUCAIM project context and related research activities.
+
+Ownership and Acceptance
+This software is the intellectual property of the Biomedical Imaging Research Group GIBI230 at La Fe Health Research Institute (GIBI230-IISLAFE), hereinafter referred to as "HULAFE". By accessing and using the Tool, users confirm acceptance of these License Terms and Conditions. If users do not agree to these terms, they must refrain from using the Tool.
+
+License
+This software is licensed, not sold. It is provided free of charge for academic and research use within the EUCAIM project context, exclusively for the purpose described above. Any other use is prohibited unless explicitly authorized in writing by HULAFE.
+
+Relation to CC-BY-NC-ND-4.0
+The software is partially inspired by the principles of CC-BY-NC-ND-4.0 (https://spdx.org/licenses/CC-BY-NC-ND-4.0), but its use is governed by the custom restrictions below.
+
+Restrictions
+- Commercial use, redistribution, or integration into any product or service (commercial or institutional) is strictly prohibited without prior written consent from HULAFE.
+- Use is strictly limited to the scope of the EUCAIM project. Use in future European public research infrastructures, including any resulting EDIC entity, is permitted provided that attribution is preserved and prior notification is sent to HULAFE.
+- Copying, sublicensing, or modifying the software, in whole or in part, is not permitted unless otherwise authorized.
+- Reverse engineering or extracting parts of the code for use in other tools is prohibited.
+
+Disclaimer
+- The software is provided "as-is" without warranty of any kind, express or implied.
+- HULAFE assumes no responsibility for the legal or ethical handling of the data processed with this tool. Full responsibility lies with the Data User (end-user).
+- The developers are not responsible for configuration errors, incompatibility with local datasets, or failures arising from incorrect usage.
+- The tool is optional and intended to assist — not replace — manual validation of imaging data quality and integrity.
+
+Developers (this tool)
+- Pedro Miguel Martínez-Gironés
+- Adrián Galiana-Bordera
+
+Contact for permissions, licensing, or questions
+gibi230@iislafe.es; pedromiguel_martinez@iislafe.es; adrian_galiana@iislafe.es; carina_soler@iislafe.es; luis_marti@iislafe.es
+
+https://www.iislafe.es/en/
+https://www.acim.lafe.san.gva.es/acim
+https://cancerimage.eu/

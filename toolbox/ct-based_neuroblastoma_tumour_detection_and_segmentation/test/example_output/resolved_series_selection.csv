@@ -1,0 +1,5 @@
+# Resolved series selection from input
+# Timestamp: 2026-07-22T12:33:43.691995
+
+dataset_id,patient_id,study_id,sequence_type,series_path
+primage-dipg-ct-dataset,ZT8FDBFAZT8FDBFA,TCTORACESENZAECONCONTRASTO20140612,CE-CT,/input/primage-ct-dataset/ZT8FDBFAZT8FDBFA/TCTORACESENZAECONCONTRASTO20140612/Fl_Addome50B30f620140612
