@@ -123,7 +123,7 @@ This environment is designed for data holders who validate datasets before its i
 #### Docker Image for Data Holders:
 
 ```bash
-docker pull harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0
+docker pull harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3
 ```
 
 ---
@@ -136,7 +136,7 @@ docker run --rm \
   -v <input_path>:/input \
   -v <output_path>:/output \
   -v <config_path>:/config \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
   --config /config/parameter_configuration.json
 ```
 
@@ -150,7 +150,7 @@ Run the tool directly with command-line arguments:
 docker run --rm \
   -v <input_path>:/input \
   -v <output_path>:/output \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
   --paths /input/Dataset/Patient_1/Study/T1W /input/Dataset/Patient_2/Study/T2W \
   --output /output \
   --series_number 2000 \
@@ -331,7 +331,7 @@ docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
   -v /data/config:/config \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
   --config /config/parameter_configuration.json
 ```
 
@@ -341,7 +341,7 @@ docker run --rm \
 docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
   --paths /input/Patient_1/DWI /input/Patient_2/DWI \
   --denoising nlm \
   --sigma 1.0 \
@@ -355,7 +355,7 @@ docker run --rm \
 docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
   --paths /input/Patient_1/T1W \
   --n4 \
   --bspline_size 50 \
@@ -456,6 +456,6 @@ This software is provided as part of the EUCAIM project under a limited-use lice
 
 ## Version
 
-Current version: 1.1.1
+Current version: 1.1.3
 
 For updates and additional information, please contact the maintainers or visit the project repository.

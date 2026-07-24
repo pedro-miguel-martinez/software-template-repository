@@ -1,7 +1,7 @@
 cwlVersion: v1.2
 class: FEMTask
 
-id: harmonization-tool
+id: denoising-inhomogeneity_correction_tool
 label: Denoising and Inhomogeneity Correction Tool
 doc: >-
   Applies MR denoising and optional N4 bias field correction to DICOM series,
@@ -9,7 +9,7 @@ doc: >-
 
 requirements:
   - class: DockerRequirement
-    dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.1
+    dockerPull: harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3
 
   - class: ResourceRequirement
     coresMin: 2
@@ -83,6 +83,17 @@ inputs:
       prefix: --series_description_suffix
       separate: true
 
+  save_json:
+    type: boolean
+    doc: Save parameter configuration as a JSON file in the output folder.
+    required: false
+    default: false
+    hidden: false
+    source: user
+    inputBinding:
+      position: 6
+      prefix: --save_json
+
   denoising:
     type: string
     doc: Denoising filter to apply.
@@ -93,7 +104,7 @@ inputs:
     constraints:
       enum: [adf, cff, bilateral, nlm, susan]
     inputBinding:
-      position: 6
+      position: 7
       prefix: --denoising
       separate: true
 
@@ -105,7 +116,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 7
+      position: 8
       prefix: --conductance
       separate: true
 
@@ -117,7 +128,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 8
+      position: 9
       prefix: --iterations
       separate: true
 
@@ -129,7 +140,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 9
+      position: 10
       prefix: --time_step
       separate: true
 
@@ -141,7 +152,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 10
+      position: 11
       prefix: --domain_sigma
       separate: true
 
@@ -153,7 +164,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 11
+      position: 12
       prefix: --range_sigma
       separate: true
 
@@ -165,7 +176,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 12
+      position: 13
       prefix: --sigma
       separate: true
 
@@ -177,7 +188,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 13
+      position: 14
       prefix: --patch_radius
       separate: true
 
@@ -189,7 +200,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 14
+      position: 15
       prefix: --block_radius
       separate: true
 
@@ -201,7 +212,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 15
+      position: 16
       prefix: --brightness_threshold
       separate: true
 
@@ -213,7 +224,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 16
+      position: 17
       prefix: --fwhm
       separate: true
 
@@ -225,7 +236,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 17
+      position: 18
       prefix: --n4
 
   bspline_size:
@@ -236,7 +247,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 18
+      position: 19
       prefix: --bspline_size
       separate: true
 
@@ -248,7 +259,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 19
+      position: 20
       prefix: --n4_iterations
       separate: true
 
@@ -260,7 +271,7 @@ inputs:
     hidden: false
     source: user
     inputBinding:
-      position: 20
+      position: 21
       prefix: --shrink_factor
       separate: true
 
@@ -275,8 +286,12 @@ expectedExitCode: 0
 
 metadata:
   author: GIBI230 / IIS La Fe
-  version: "1.1.1"
+  version: "1.1.3"
   orchestrator:
     network: overlay
     additional_metadata:
-      notes: "Runtime/deployment must provide /input, /output and (for config mode) /config mounts."
+      runtime_mounts:
+        - /input
+        - /output
+      notes: >-
+        Runtime/deployment must provide /input, /output and (for config mode) /config mounts.
