@@ -1,0 +1,3 @@
+dataset_id,patient_id,study_id,sequence_type,series_path
+dataset_id,FEC712B4,60c734671d72d05adf061397,T1w,/input/dataset_id/FEC712B4/60c734671d72d05adf061397/T1W
+dataset_id,FEC712B4,60c734671d72d05adf061397,FLAIR,/input/dataset_id/FEC712B4/60c734671d72d05adf061397/FLAIR

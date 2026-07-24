@@ -1,0 +1,13 @@
+# Execution Configuration
+# Timestamp: 2026-07-23T09:05:00.269881
+# Mode: dicom-seg
+# Target: total-fused
+# BET_frac: 0.5
+# Postprocess: true
+# Keep_intermediates: false
+# Keep_submodels: true
+# Config_Summary: all_defaults
+# See execution_config.json for complete configuration
+
+dataset_id,patient_id,study_id,sequences_available,target,models_segmented,status,reason
+perproglio-id,PERPROGLIO_001,MR_RM111-RMCEREBRAL_20150615,"FLAIR,T1ce,T2w",total-fused,necrosis+edema+enhancing→fused,SUCCESS,Completed successfully

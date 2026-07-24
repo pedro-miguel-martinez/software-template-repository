@@ -1,0 +1,12 @@
+# Execution Configuration
+# Timestamp: 2026-07-23T09:05:00.269881
+# Mode: dicom-seg
+# Target: total-fused
+# BET_frac: 0.5
+# Postprocess: true
+# Config_Summary: all_defaults
+
+dataset_id,patient_id,study_id,sequence_type,series_path
+perproglio-id,PERPROGLIO_001,MR_RM111-RMCEREBRAL_20150615,T1ce,/input/perproglio-id/PERPROGLIO_001/MR_RM111-RMCEREBRAL_20150615/12_AxFSPGR3DC
+perproglio-id,PERPROGLIO_001,MR_RM111-RMCEREBRAL_20150615,T2w,/input/perproglio-id/PERPROGLIO_001/MR_RM111-RMCEREBRAL_20150615/4_AxFRFSET2ASSET
+perproglio-id,PERPROGLIO_001,MR_RM111-RMCEREBRAL_20150615,FLAIR,/input/perproglio-id/PERPROGLIO_001/MR_RM111-RMCEREBRAL_20150615/5_CORONALT2FLAIRasset
