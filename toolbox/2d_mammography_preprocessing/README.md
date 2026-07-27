@@ -70,7 +70,7 @@ Optional functionalities are:
 3. Pull the prebuilt Docker image from the EUCAIM registry:
 
     ```bash
-    docker pull harbor.eucaim.cancerimage.eu/processing-tools/mammography_preprocessing:1.1.0
+    docker pull harbor.eucaim.cancerimage.eu/processing-tools/2d_mammography_preprocessing:1.2.0
     ```
 
 4. Run the Docker container as explained in the **Usage** section below.
@@ -114,7 +114,8 @@ config/
       -v "<input_path>:/input" \
       -v "<output_path>:/output" \
       -v "<config_path>:/config" \
-      harbor.eucaim.cancerimage.eu/processing-tools/2d_mammography_preprocessing:1.1.0
+      harbor.eucaim.cancerimage.eu/processing-tools/2d_mammography_preprocessing:1.2.0 \
+      --config /config/config.json
     ```
 ### **Alternative: Run With Command-Line Arguments (No config.json)**
 
@@ -125,7 +126,7 @@ Example: Adaptive Median
 docker run -it --rm --name mammography-preprocessing \
   -v "<input_path>:/input" \
   -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/processing-tools/2d_mammography_preprocessing:1.1.0 \
+  harbor.eucaim.cancerimage.eu/processing-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT --output_directory OUTPUT --num_workers 4 \
   --series_number 2301101 --series_description_suffix _harmonized \
   --zscore_enabled true --zscore_p_low 1.0 --zscore_p_high 99.0 \
@@ -138,7 +139,7 @@ Example: Gaussian
 docker run -it --rm --name mammography-preprocessing \
   -v "<input_path>:/input" \
   -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/ingestion-tools/mammography_preprocessing:1.0.0 \
+  harbor.eucaim.cancerimage.eu/ingestion-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT --output_directory OUTPUT --num_workers 4 \
   --series_number 2301101 --series_description_suffix _harmonized \
   --zscore_enabled true --zscore_p_low 1.0 --zscore_p_high 99.0 \
@@ -151,7 +152,7 @@ Example: Anisotropic Diffusion
 docker run -it --rm --name mammography-preprocessing \
   -v "<input_path>:/input" \
   -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/ingestion-tools/mammography_preprocessing:1.0.0 \
+  harbor.eucaim.cancerimage.eu/ingestion-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT --output_directory OUTPUT --num_workers 4 \
   --series_number 2301101 --series_description_suffix _harmonized \
   --zscore_enabled true --zscore_p_low 1.0 --zscore_p_high 99.0 \
@@ -164,7 +165,7 @@ Example: Wavelet
 docker run -it --rm --name mammography-preprocessing \
   -v "<input_path>:/input" \
   -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/ingestion-tools/mammography_preprocessing:1.0.0 \
+  harbor.eucaim.cancerimage.eu/ingestion-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT --output_directory OUTPUT --num_workers 4 \
   --series_number 2301101 --series_description_suffix _harmonized \
   --zscore_enabled true --zscore_p_low 1.0 --zscore_p_high 99.0 \
@@ -177,7 +178,7 @@ Example: Cascade (Unsharp + Gaussian) - Complete with all parameters
 docker run -it --rm --name mammography-preprocessing \
   -v "<input_path>:/input" \
   -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/ingestion-tools/mammography_preprocessing:1.0.0 \
+  harbor.eucaim.cancerimage.eu/ingestion-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT \
   --output_directory OUTPUT \
   --num_workers 4 \
@@ -218,7 +219,7 @@ docker run -it --rm --name mammography-preprocessing \
 Example using per-method flags (no JSON):
 ```bash
 docker run -it --rm -v "<input_path>:/input" -v "<output_path>:/output" \
-  harbor.eucaim.cancerimage.eu/ingestion-tools/mammography_preprocessing:1.0.0 \
+  harbor.eucaim.cancerimage.eu/ingestion-tools/2d_mammography_preprocessing:1.2.0 \
   --input_directory INPUT \
   --output_directory OUTPUT \
   --zscore_enabled true --zscore_p_low 1.0 --zscore_p_high 99.0 \
