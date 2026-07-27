@@ -88,6 +88,8 @@ Create a `parameter_configuration.json` file with the following structure:
   "_series_number": 2000,
   "_series_description_suffix": " - Harmonized",
   
+  "save_json": true,
+  
   "Denoising_adf": [{
     "Conductance": 0.5,
     "Iterations": 3,
@@ -123,7 +125,7 @@ This environment is designed for data holders who validate datasets before its i
 #### Docker Image for Data Holders:
 
 ```bash
-docker pull harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3
+docker pull harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0
 ```
 
 ---
@@ -136,7 +138,7 @@ docker run --rm \
   -v <input_path>:/input \
   -v <output_path>:/output \
   -v <config_path>:/config \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
   --config /config/parameter_configuration.json
 ```
 
@@ -155,6 +157,7 @@ docker run --rm \
   --output /output \
   --series_number 2000 \
   --series_description_suffix " - Harmonized" \
+  --save_json \
   --denoising adf \
   --conductance 0.5 \
   --iterations 3 \
@@ -180,6 +183,14 @@ docker run --rm \
   - Command-line: `--output /path/to/output`
   - Config file: `"Output": "/path/to/output"`
   - **Note**: The tool preserves the original directory structure under this base path
+
+### Parameter Logging (Optional)
+
+Control whether a configuration log is saved alongside the DICOM files for reproducibility.
+
+- **`--save_json`** (CLI) or **`"save_json": true`** (in config): Saves a `harmonization_parameters.json` file inside the output directory containing the exact configuration used for that specific execution.
+  - Default: Disabled (False).
+  - **Note**: Disabled by default to maintain strict DICOM-only directory structures required by certain PACS systems or dataset validators. Enable it if you need file-level processing provenance.
 
 ### Series Metadata (Optional)
 
@@ -331,7 +342,7 @@ docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
   -v /data/config:/config \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
   --config /config/parameter_configuration.json
 ```
 
@@ -341,7 +352,7 @@ docker run --rm \
 docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
   --paths /input/Patient_1/DWI /input/Patient_2/DWI \
   --denoising nlm \
   --sigma 1.0 \
@@ -355,7 +366,7 @@ docker run --rm \
 docker run --rm \
   -v /data/input:/input \
   -v /data/output:/output \
-  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.3 \
+  harbor.eucaim.cancerimage.eu/processing-tools/denoising_inhomogeneity_correction_tool:1.1.0 \
   --paths /input/Patient_1/T1W \
   --n4 \
   --bspline_size 50 \
@@ -391,9 +402,9 @@ The tool generates harmonized DICOM files with properly structured metadata foll
   - Example: `"T1W_MPRAGE"` → `"T1W_MPRAGE_harmonized"`
   - Or with custom suffix: `"T1W_MPRAGE - Harmonized"`
 
-- **DerivationDescription**: Automatically documents processing steps
-  - Lists applied filters in order
-  - Example: `"Denoising: ADF; N4 Bias Field Correction"`
+- **DerivationDescription**: Automatically documents processing steps and the exact parameters used.
+  - Lists applied filters and their configuration directly embedded in the DICOM header.
+  - Example: `"Harmonized: Denoising ADF (Conductance=0.5, Iterations=3, Time_step=0.0625); N4 Bias Correction (BSpline_size=50, Iterations=[50, 30], Shrink_factor=2)"`
 
 ## Dependencies and Licenses
 
