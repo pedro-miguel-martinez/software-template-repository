@@ -118,6 +118,10 @@ metadata:
   orchestrator:
     network: overlay
     additional_metadata:
+      runtime_mounts:
+        - /input
+        - /output
       notes: >-
-        Runtime/deployment must provide /input and /output mounts. The tool
-        requires GPU acceleration to run the alfaSUNet model optimally.
+        This task expects the container runtime to mount the input and output
+        folders at /input and /output.
+        The tool requires GPU acceleration to run the alfaSUNet model optimally.

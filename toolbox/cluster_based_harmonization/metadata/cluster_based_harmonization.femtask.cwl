@@ -179,5 +179,9 @@ metadata:
   orchestrator:
     network: overlay
     additional_metadata:
+      runtime_mounts:
+        - /input
+        - /output
       notes: >-
-        Runtime/deployment must provide /input and /output mounts.
+        This task expects the container runtime to mount the input and output
+        folders at /input and /output.
