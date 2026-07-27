@@ -66,5 +66,10 @@ metadata:
   orchestrator:
     network: overlay
     additional_metadata:
-      fem_mode_forced: true
-      notes: "FEM=true disables interactive license prompt. Runtime/deployment must provide /input, /output and /config mounts."
+      runtime_mounts:
+        - /input
+        - /output
+      notes: >-
+        fem_mode_forced: true
+        FEM=true disables interactive license prompt. Runtime/deployment must provide /input, /output and /config mounts.
+

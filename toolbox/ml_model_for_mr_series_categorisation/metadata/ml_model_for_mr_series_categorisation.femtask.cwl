@@ -32,4 +32,9 @@ metadata:
   orchestrator:
     network: overlay
     additional_metadata:
-      notes: "Entrypoint expects /input and /output mounts and writes the report to /output/results.json."
+      runtime_mounts:
+        - /input
+        - /output
+      notes: >-
+        This task expects the container runtime to mount the input and output
+        folders at /input and /output.    
