@@ -27,6 +27,9 @@ The tool consists in two steps that can be run independently or together:
 	- Non-Local Means from DIPY library
 - **Bias field correction**: in this stage N4 bias field correction filter of ANTs is applied.
 
+> ⚠️ **IMPORTANT: You must explicitly configure at least one step!**
+> By default, the tool does **not** apply any filter automatically. If you run the container without specifying a denoising filter or the N4 bias correction via the JSON config or CLI arguments, the tool will execute without errors but **no improvements will be made to the images**. You must explicitly enable and configure at least one of these two steps for the tool to process the images.
+
 ---
 
 ## Folder Structure
@@ -212,8 +215,7 @@ Control how the harmonized series appears in DICOM viewers:
 - **DerivationDescription**: Documents applied filters (e.g., "Denoising: ADF; N4 Bias Field Correction")
 
 ### Denoising Filters (Optional)
-
-Choose **one** of the following:
+Choose **one** of the following filters if you want to apply denoising. If you do not configure any of these, the denoising step will be completely skipped.
 
 #### Anisotropic Diffusion Filter (ADF)
 ```json
@@ -285,6 +287,7 @@ Choose **one** of the following:
 - `--block_radius <value>` (default: 5)
 
 ### N4 Bias Field Correction (Optional)
+Enable this module to apply the ANTs N4 bias field correction. If you do not provide the `--n4` flag (CLI) or the `N4` block (JSON), this step will be completely skipped.
 
 ```json
 "N4": [{
@@ -304,11 +307,19 @@ Choose **one** of the following:
 
 ## Optimal Parameters
 
-Optimized configurations for different tumor types and sequences:
+The optimized parameter configurations for **Neuroblastoma (NB)** and **Diffuse Intrinsic Pontine Glioma (DIPG)** across different MRI sequences are shown in the table below. 
 
-The optimised parameter configuration for each tumour and sequence is shown in the table below:
+| Pathology | Step | T1W | T2W | DCE | DWI |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **NB** | **Denoising** | **ADF**<br>Iterations = 2<br>Conductance = 1 | **ADF**<br>Iterations = 2<br>Conductance = 1 | **ADF**<br>Iterations = 2<br>Conductance = 1 | **SUSAN**<br>FWHM = 2<br>Threshold = 1.2 Otsu |
+| | **Bias Field Correction** | **N4 (Ants)**<br>Iterations = [50, 30]<br>BSpline = 50<br>Shrink Factor = 2 | **N4 (Ants)**<br>Iterations = [50, 30]<br>BSpline = 50<br>Shrink Factor = 2 | **N4 (Ants)**<br>Iterations = [50, 30]<br>BSpline = 50<br>Shrink Factor = 2 | - |
+| **DIPG** | **Denoising** | **ADF**<br>Iterations = 1<br>Conductance = 0.5 | **Bilateral**<br>Domain sigma = 0.5<br>Range sigma = 60 | **Bilateral**<br>Domain sigma = 0.5<br>Range sigma = 60 | **SUSAN**<br>FWHM = 2<br>Threshold = 1.5 Otsu |
+| | **Bias Field Correction** | **N4 (Ants)**<br>Iterations = 50<br>BSpline = 50<br>Shrink Factor = 2 | **N4 (Ants)**<br>Iterations = 50<br>BSpline = 50<br>Shrink Factor = 2 | **N4 (Ants)**<br>Iterations = 50<br>BSpline = 50<br>Shrink Factor = 2 | - |
 
-![Optimal parameters](images/Table.png)
+> ⚠️ **IMPORTANT CONSIDERATIONS FOR YOUR DATASET**
+> 
+> *   **MRI Approximation:** The parameters listed above have been specifically validated and optimized for NB and DIPG pediatric tumors in MRI. For other MRI datasets or pathologies, these values serve as a solid starting point/approximation. However, we highly recommend having an imaging expert validate and adjust these parameters to ensure the best accuracy and feature preservation for your specific clinical use case.
+> *   **Other Modalities (CT, PET, X-Ray, etc.):** This tool can process DICOM images from other modalities. However, please note that **Bias Field Inhomogeneity is an artifact strictly associated with Magnetic Resonance Imaging (MRI)**. If you are processing non-MRI datasets, you should **ONLY activate the Denoising step** and ensure that the N4 Bias Field Correction is disabled, as applying it to other modalities does not make clinical or technical sense.
 
 
 
