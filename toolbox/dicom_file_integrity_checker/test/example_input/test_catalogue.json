@@ -1,8 +1,0 @@
-{
-    "DIFUSION": ["DWI", "DIFFUSION", "ep2d_diff", "AXDIF", "axdifb1000", "axdifb1500", "AXDIFB1000", "AxDWIb1000"],
-    "T2": ["T2W", "T2_TSE", "T2 AXIAL", "T2", "AXT2", "AXFSET2", "AXT2TSEHR"],
-    "T1": ["T1W", "T1_VIBE"],
-    "PERFUSION": ["DCE", "DYNAMIC", "3D_VIBE_DYNAMIC", "AXIALVIBET1FSDINAMICOCAIPIRINHA", "e-THRIVE"],
-    "ADC": ["ADC", "ADC_MAP"],
-    "FLAIR": ["FLAIR", "T2_FLAIR"]
-}
